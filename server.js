@@ -41,7 +41,9 @@ db.once("open",()=>{
             const messageDetails=change.fullDocument;
             pusher.trigger("messages","inserted",{
                 name:messageDetails.user,
-                message:messageDetails.message
+                message:messageDetails.message,
+                timestamp:messageDetails.timestamp,
+                received:messageDetails.received
             });
         }else{
             console.log("error Triggering pusher");

@@ -4,7 +4,7 @@ import Messages from "./dbmessages.js";
 const app = express();
 const port = process.env.PORT || 9000;
 
-const connection_url="mongodb+srv://admin:huvkam5RhzeoU1eH@cluster1.4ruxgjo.mongodb.net/?retryWrites=true&w=majority"
+const connection_url="<Your Mongo db URL>"
 
 
 app.use(express.json())

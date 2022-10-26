@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import Messages from "./dbmessages.js";
 import Pusher from "pusher";
+import cors from "cors"
 
 const app = express();
 const port = process.env.PORT || 9000;
@@ -10,12 +11,22 @@ const connection_url="mongodb+srv://admin:huvkam5RhzeoU1eH@cluster1.4ruxgjo.mong
 
 
 app.use(express.json())
+app.use(cors())
+
 
 
 mongoose.connect(connection_url,{
     useNewUrlParser:true,
     useUnifiedTopology:true
 })
+
+const pusher = new Pusher({
+    appId: "1497708",
+    key: "9e3a199104fea69bb83a",
+    secret: "31390be9aecf8ef18862",
+    cluster: "ap2",
+    useTLS: true
+  });
 
 const db=mongoose.connection
 
